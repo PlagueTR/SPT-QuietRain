@@ -1,0 +1,12 @@
+# Visual Studio Files
+
+.vs/
+
+# Libraries
+
+*.dll
+
+# Binaries
+
+bin/
+obj/
