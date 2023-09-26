@@ -1,7 +1,6 @@
-﻿using EFT;
-using EFT.EnvironmentEffect;
-using System;
+﻿using System;
 using System.Reflection;
+using EFT.EnvironmentEffect;
 using UnityEngine;
 
 namespace QuietRain
@@ -9,17 +8,18 @@ namespace QuietRain
     public class QuietRainClass : MonoBehaviour
     {
 
-        public static LocalPlayer localPlayer;
+        public static bool ambienceChanged = true;
         public static EnvironmentManager environmentManager = null;
 
         public void Start()
         {
-            QuietRainPlugin.RainVolume.SettingChanged += SettingsUpdated;
+            QuietRainPlugin.RainVolume.SettingChanged += UpdateQuietRain;
+            QuietRainPlugin.AmbienceVolume.SettingChanged += UpdateAmbience;
         }
 
-        public void UpdateQuietRain()
+        private void UpdateQuietRain(object sender, EventArgs e)
         {
-            if (environmentManager != null)
+            if(environmentManager != null)
             {
                 MethodInfo Init = environmentManager.GetType().GetMethod("Init", BindingFlags.Instance | BindingFlags.NonPublic);
                 Init.Invoke(environmentManager, null);
@@ -28,10 +28,9 @@ namespace QuietRain
             }
         }
 
-        private void SettingsUpdated(object sender, EventArgs e)
+        private void UpdateAmbience(object sender, EventArgs e)
         {
-            UpdateQuietRain();
+            ambienceChanged = true;
         }
-
     }
 }
