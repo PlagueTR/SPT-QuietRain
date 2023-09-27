@@ -98,6 +98,7 @@ namespace QuietRain
             [PatchPrefix]
             private static void PatchPreFix(ref EnvironmentManager __instance)
             {
+                QuietRainClass.ambienceChanged = true;
                 QuietRainClass.environmentManager = __instance;
                 Traverse.Create(__instance).Field("OutdoorRainVolume").SetValue(RainVolume.Value);
                 Traverse.Create(__instance).Field("RainVolume").SetValue(RainVolume.Value * 0.7f);
