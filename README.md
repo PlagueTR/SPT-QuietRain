@@ -5,7 +5,7 @@
 ![Environment: Client](https://img.shields.io/badge/environment-client-blue)
 [![Mod loader: BepInEx](https://img.shields.io/badge/modloader-BepInEx-blue)][bepinex]
 ![SPTVersion](https://img.shields.io/badge/SPT-3.6.1-blue)
-![Version](https://img.shields.io/badge/version-1.1.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.1-blue)
 
 A BepInEx mod that lets you change the volume of the rain, thunder and wind!
 
